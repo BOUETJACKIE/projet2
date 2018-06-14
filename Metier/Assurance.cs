@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    [Table("Assurances")]
-    public class Assurance
+    class Assurance
     {
         public int Id { get; set; }
 
