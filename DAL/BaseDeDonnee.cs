@@ -1,5 +1,6 @@
 ﻿namespace BoVoyageEtape2
 {
+    using BoVoyageEtape2.Metier;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -16,6 +17,13 @@
             : base("name=Connexion")
         {
         }
+        public DbSet<AgenceVoyage> Agences { get; set; }
+        public DbSet<Assurance> Assurances { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Destination> Destinations { get; set; }
+        public DbSet<DossierReservation> DossierReservations { get; set; }
+        public DbSet<Participant> Participants { get; set; }
+        public DbSet<Voyage> Voyages { get; set; }
 
         // Ajoutez un DbSet pour chaque type d'entité à inclure dans votre modèle. Pour plus d'informations 
         // sur la configuration et l'utilisation du modèle Code First, consultez http://go.microsoft.com/fwlink/?LinkId=390109.
