@@ -9,5 +9,9 @@ namespace BoVoyageEtape2
             var application = new Application();
             application.Demarrer();
         }
+        public static BaseDonnees GetBaseDonnees()
+        {
+            return new BaseDonnees();
+        }
     }
 }

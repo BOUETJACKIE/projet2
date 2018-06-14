@@ -1,4 +1,5 @@
-﻿namespace BoVoyageEtape2
+﻿namespace BoVoyageEtape2.DAL
+
 {
     using BoVoyageEtape2.Metier;
     using System;
