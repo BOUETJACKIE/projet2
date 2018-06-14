@@ -6,15 +6,38 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
+    public enum EtatDossierReservation : byte { EnAttente = 1, EnCours, Refusee, Acceptee}
+
+    public enum RaisonAnnulationDossier : byte { Client = 1, PlacesInsuffisantes }
+
+
     public class DossierReservation
     {
         public int Id { get; set; }
 
-        public string Nom { get; set; }
+        public string NumeroCB { get; set; }
+
+        public decimal PrixTotal { get; }
+
+
+        public void Annuler(RaisonAnnulationDossier raison)
+        {
+
+        }
+
+        public void ValiderSolvabilite()
+        {
+
+        }
+
+        public void Accepter()
+        {
+
+        }
 
         public override string ToString()
         {
-            return $"{this.Nom} ({this.Id})";
+            return $"{this.NumeroCB} ({this.Id})";
         }
 
     }

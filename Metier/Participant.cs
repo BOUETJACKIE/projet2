@@ -8,6 +8,6 @@ namespace BoVoyageEtape2.Metier
 {
     public class Participant : Personne
     {
-        
+        float Reduction { get; set; }
     }
 }

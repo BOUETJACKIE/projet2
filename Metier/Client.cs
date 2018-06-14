@@ -8,5 +8,6 @@ namespace BoVoyageEtape2.Metier
 {
     public class Client : Personne
     {
+        public string Email { get; set; }
     }
 }

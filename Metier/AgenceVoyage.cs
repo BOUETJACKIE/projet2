@@ -12,6 +12,10 @@ namespace BoVoyageEtape2.Metier
 
         public string Nom { get; set; }
 
+
+
+
+
         public override string ToString()
         {
             return $"{this.Nom} ({this.Id})";
