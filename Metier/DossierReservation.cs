@@ -17,7 +17,8 @@ namespace BoVoyageEtape2.Metier
 
         public string NumeroCB { get; set; }
 
-        public decimal PrixTotal { get; }
+
+        public decimal PrixTotal { get { return 0; } }
 
 
         public void Annuler(RaisonAnnulationDossier raison)

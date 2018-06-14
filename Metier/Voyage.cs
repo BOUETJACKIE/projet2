@@ -21,6 +21,11 @@ namespace BoVoyageEtape2.Metier
         public Decimal TarifToutCompris { get; set; }
 
 
+        //[InformationAffichage(Entete = "AgenceDeVoyage", NombreCaracteres = 30)]
+        //[ForeignKey("IdAgenceDeVoyage")]
+        public virtual AgenceVoyage AgenceVoyage { get; set; }
+        public int IdAgenceVoyage { get; set; }
+
         public void Reserver(int places)
         {
             

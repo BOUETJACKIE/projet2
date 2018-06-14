@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
+    public enum CivilitePersonne : byte { Madame = 1, Monsieur, Mademoiselle}
+
     public class Personne
     {
         public int Id { get; set; }
+
+        public CivilitePersonne Civilite { get; set; }
 
         public string Nom { get; set; }
 
@@ -20,7 +24,8 @@ namespace BoVoyageEtape2.Metier
 
         public DateTime DateNaissance { get; set; }
 
-        public int Age { get; }
+        public int Age { get { return DateTime.Today.Year - DateNaissance.Year; } }
+
 
         public override string ToString()
         {
