@@ -1,4 +1,5 @@
-﻿using BoVoyageEtape2.UI;
+﻿using BoVoyageEtape2.DAL;
+using BoVoyageEtape2.UI;
 
 namespace BoVoyageEtape2
 {
@@ -9,9 +10,9 @@ namespace BoVoyageEtape2
             var application = new Application();
             application.Demarrer();
         }
-        public static BaseDonnees GetBaseDonnees()
+        public static BaseDeDonnee GetBaseDonnees()
         {
-            return new BaseDonnees();
+            return new BaseDeDonnee();
         }
     }
 }
