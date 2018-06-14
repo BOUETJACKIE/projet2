@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExempleUtilisationBoVoyageFramework.Metier
+namespace BoVoyageEtape2.Metier
 {
     public class DossierReservation
     {
-        int NumeroUnique { get; set; }
+        public int Id { get; set; }
+
+        public string Nom { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.Nom} ({this.Id})";
+        }
 
     }
 }

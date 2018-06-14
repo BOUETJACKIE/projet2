@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    public class Personne
+    class Assurance
     {
         public int Id { get; set; }
 

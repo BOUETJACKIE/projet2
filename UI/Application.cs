@@ -1,7 +1,7 @@
 ﻿using System;
 using BoVoyage.Framework.UI;
 
-namespace ExempleUtilisationBoVoyageFramework.UI
+namespace BoVoyageEtape2.UI
 {
     public class Application
     {

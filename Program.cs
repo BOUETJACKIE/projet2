@@ -1,6 +1,6 @@
-﻿using ExempleUtilisationBoVoyageFramework.UI;
+﻿using BoVoyageEtape2.UI;
 
-namespace ExempleUtilisationBoVoyageFramework
+namespace BoVoyageEtape2
 {
     class Program
     {

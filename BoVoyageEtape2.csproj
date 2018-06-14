@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A2385A68-D577-45DC-A763-E5E3CB6D13AA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ExempleUtilisationBoVoyageFramework</RootNamespace>
-    <AssemblyName>ExempleUtilisationBoVoyageFramework</AssemblyName>
+    <RootNamespace>BoVoyageEtape2</RootNamespace>
+    <AssemblyName>BoVoyageEtape2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -41,9 +41,16 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metier\AgenceVoyage.cs" />
+    <Compile Include="Metier\Assurance.cs" />
+    <Compile Include="Metier\AssuranceAnnulation.cs" />
+    <Compile Include="Metier\Client.cs" />
+    <Compile Include="Metier\Destination.cs" />
     <Compile Include="Metier\DossierReservation.cs" />
     <Compile Include="Metier\EntiteMetier.cs" />
+    <Compile Include="Metier\Participant.cs" />
     <Compile Include="Metier\Personne.cs" />
+    <Compile Include="Metier\Voyage.cs" />
     <Compile Include="UI\Application.cs" />
     <Compile Include="UI\ModuleGestion1.cs" />
     <Compile Include="Program.cs" />

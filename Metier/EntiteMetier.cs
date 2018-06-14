@@ -1,4 +1,4 @@
-﻿namespace ExempleUtilisationBoVoyageFramework.Metier
+﻿namespace BoVoyageEtape2.Metier
 {
     public class EntiteMetier
     {

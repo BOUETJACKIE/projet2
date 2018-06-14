@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using BoVoyage.Framework.UI;
-using ExempleUtilisationBoVoyageFramework.Metier;
+using BoVoyageEtape2.Metier;
 
-namespace ExempleUtilisationBoVoyageFramework.UI
+namespace BoVoyageEtape2.UI
 {
     public class ModuleGestion1
     {

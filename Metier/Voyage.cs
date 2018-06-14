@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    public class Personne
+    public class Voyage
     {
         public int Id { get; set; }
 
@@ -18,3 +18,4 @@ namespace BoVoyageEtape2.Metier
         }
     }
 }
+
