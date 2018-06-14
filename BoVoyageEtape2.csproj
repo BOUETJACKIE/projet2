@@ -41,7 +41,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Metier\DossierReservation.cs" />
     <Compile Include="Metier\EntiteMetier.cs" />
+    <Compile Include="Metier\Personne.cs" />
     <Compile Include="UI\Application.cs" />
     <Compile Include="UI\ModuleGestion1.cs" />
     <Compile Include="Program.cs" />

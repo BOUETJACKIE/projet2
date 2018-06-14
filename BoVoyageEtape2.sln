@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExempleUtilisationBoVoyageFramework", "ExempleUtilisationBoVoyageFramework.csproj", "{A2385A68-D577-45DC-A763-E5E3CB6D13AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.Framework", "..\Console.Framework\BoVoyage.Framework.csproj", "{87270D56-5060-4FCC-8210-BA9568265AB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyageEtape2", "BoVoyageEtape2.csproj", "{A2385A68-D577-45DC-A763-E5E3CB6D13AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
