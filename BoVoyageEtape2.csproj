@@ -65,9 +65,12 @@
     <Compile Include="Metier\Voyage.cs" />
     <Compile Include="DAL\BaseDeDonnee.cs" />
     <Compile Include="UI\Application.cs" />
+    <Compile Include="UI\ModuleDeGestionVoyage.cs" />
     <Compile Include="UI\ModuleGestion1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ModuleGestionClient.cs" />
+    <Compile Include="UI\ModuleGestionDossier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
