@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ModuleGestionClient.cs" />
     <Compile Include="UI\ModuleGestionDossier.cs" />
+    <Compile Include="UI\ModuleGestionParticipant.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

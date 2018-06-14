@@ -7,6 +7,7 @@ namespace BoVoyageEtape2.UI
     {
         private Menu menuPrincipal;
         private ModuleGestionClient moduleGestionClient;
+        private ModuleGestionParticipant moduleGestionParticipant;
         private ModuleGestionDossier moduleGestionDossier;
         private ModuleGestionVoyage moduleGestionVoyage;
 
@@ -15,9 +16,8 @@ namespace BoVoyageEtape2.UI
             this.moduleGestionClient = new ModuleGestionClient(this);
             this.moduleGestionDossier = new ModuleGestionDossier(this);
             this.moduleGestionVoyage = new ModuleGestionVoyage(this);
-
+            this.moduleGestionParticipant = new ModuleGestionParticipant(this);
         }
-
 
         private void InitialiserMenuPrincipal()
         {
@@ -27,12 +27,17 @@ namespace BoVoyageEtape2.UI
                 AfficherLigneRetourMenuApresExecution = false,
                 FonctionAExecuter = this.moduleGestionClient.Demarrer
             });
-            this.menuPrincipal.AjouterElement(new ElementMenu("2", "Gestion des voyages")
+            this.menuPrincipal.AjouterElement(new ElementMenu("2", "Gestion des Participants")
+            {
+                AfficherLigneRetourMenuApresExecution = false,
+                FonctionAExecuter = this.moduleGestionClient.Demarrer
+            });
+            this.menuPrincipal.AjouterElement(new ElementMenu("3", "Gestion des voyages")
             {
                 AfficherLigneRetourMenuApresExecution = false,
                 FonctionAExecuter = this.moduleGestionVoyage.Demarrer
             });
-            this.menuPrincipal.AjouterElement(new ElementMenu("3", "Gestion des dossiers")
+            this.menuPrincipal.AjouterElement(new ElementMenu("4", "Gestion des dossiers")
             {
                 AfficherLigneRetourMenuApresExecution = false,
                 FonctionAExecuter = this.moduleGestionDossier.Demarrer
