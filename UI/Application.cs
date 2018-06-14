@@ -6,20 +6,36 @@ namespace BoVoyageEtape2.UI
     public class Application
     {
         private Menu menuPrincipal;
-        private ModuleGestion1 moduleGestion1;
+        private ModuleGestionClient moduleGestionClient;
+        private ModuleGestionDossier moduleGestionDossier;
+        private ModuleGestionVoyage moduleGestionVoyage;
 
         private void InitialiserModules()
         {
-            this.moduleGestion1 = new ModuleGestion1(this);
+            this.moduleGestionClient = new ModuleGestionClient(this);
+            this.moduleGestionDossier = new ModuleGestionDossier(this);
+            this.moduleGestionVoyage = new ModuleGestionVoyage(this);
+
         }
+
 
         private void InitialiserMenuPrincipal()
         {
             this.menuPrincipal = new Menu("Menu principal");
-            this.menuPrincipal.AjouterElement(new ElementMenu("1", "Gestion 1")
+            this.menuPrincipal.AjouterElement(new ElementMenu("1", "Gestion des clients")
             {
                 AfficherLigneRetourMenuApresExecution = false,
-                FonctionAExecuter = this.moduleGestion1.Demarrer
+                FonctionAExecuter = this.moduleGestionClient.Demarrer
+            });
+            this.menuPrincipal.AjouterElement(new ElementMenu("2", "Gestion des voyages")
+            {
+                AfficherLigneRetourMenuApresExecution = false,
+                FonctionAExecuter = this.moduleGestionVoyage.Demarrer
+            });
+            this.menuPrincipal.AjouterElement(new ElementMenu("3", "Gestion des dossiers")
+            {
+                AfficherLigneRetourMenuApresExecution = false,
+                FonctionAExecuter = this.moduleGestionDossier.Demarrer
             });
             this.menuPrincipal.AjouterElement(new ElementMenuQuitterMenu("Q", "Quitter")
             {
