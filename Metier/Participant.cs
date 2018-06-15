@@ -26,6 +26,6 @@ namespace BoVoyageEtape2.Metier
 
         public int Age { get { return DateTime.Today.Year - DateNaissance.Year; } }
 
-        float Reduction { get; set; }
+        public double Reduction { get; set; }
     }
 }

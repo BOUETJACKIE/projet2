@@ -1,21 +1,31 @@
-﻿using BoVoyage.Framework.UI;
-using BoVoyageEtape2.Metier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoVoyage.Framework.UI;
+using BoVoyageEtape2.Metier;
+using BoVoyageEtape2.Metier.Services;
 
 
 namespace BoVoyageEtape2.UI
 {
     class ModuleGestionClient
     {
-        private static readonly List<InformationAffichage> strategieAffichageEntitesMetier =
+        private readonly ServiceClient serviceClient = new ServiceClient();
+
+        private static readonly List<InformationAffichage> strategieAffichageClient =
           new List<InformationAffichage>
           {
-                InformationAffichage.Creer<EntiteMetier>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<EntiteMetier>(x=>x.Nom, "Nom", 20),
+                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Client>(x=>x.Civilite, "Civ.", 4),
+                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 16),
+                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prénom", 16),
+                InformationAffichage.Creer<Client>(x=>x.Adresse, "Adresse", 20),
+                InformationAffichage.Creer<Client>(x=>x.Telephone, "Téléphone", 16),
+                InformationAffichage.Creer<Client>(x=>x.DateNaissance, "Date naissance", 14),
+                InformationAffichage.Creer<Client>(x=>x.Age, "Age", 3),
+                InformationAffichage.Creer<Client>(x=>x.Email, "Email", 16)
           };
         private Menu menu;
 
@@ -34,10 +44,10 @@ namespace BoVoyageEtape2.UI
             });
             this.menu.AjouterElement(new ElementMenu("2", "Créer un client")
             {
-                FonctionAExecuter = this.Afficher
+                FonctionAExecuter = this.CreerNouveau
             });
 
-            this.menu.AjouterElement(new ElementMenu("3", "supprimer un client")
+            this.menu.AjouterElement(new ElementMenu("3", "Modifier un client")
             {
                 FonctionAExecuter = this.Nouveau
             });
@@ -59,14 +69,48 @@ namespace BoVoyageEtape2.UI
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
-            Console.WriteLine("TO DO");
+            var liste = serviceClient.GetClients();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageClient);
         }
 
-        private void Nouveau()
+        private void CreerNouveau()
+        {
+            ConsoleHelper.AfficherEntete("Nouveau Client");
+
+            /*
+            try
+            {
+                ConsoleHelper.AfficherEntete("Nouveau produit");
+
+                var produit = new Produit();
+                produit.Nom = ConsoleSaisie.SaisirChaine("Nom du produit: ", false);
+                produit.Description = ConsoleSaisie.SaisirChaine("Description: ", true);
+                produit.IdCategorie = ConsoleSaisie.SaisirEntierObligatoire("Catégorie: ");
+
+                produit.Categorie = this.serviceCategorieProduit.GetCategorie(produit.IdCategorie);
+
+                produit.PrixJourHT = ConsoleSaisie.SaisirDecimalObligatoire("Prix du produit HT: ");
+                serviceProduit.AjouterProduit(produit);
+            }
+            catch (MetierException e)
+            {
+                ConsoleHelper.AfficherMessageErreur(e.Message);
+            }
+            catch (Exception e)
+            {
+                ConsoleHelper.AfficherMessageErreur("GROS PROBLEME");
+                throw;
+            }
+            */
+
+        }
+
+        private void Modifier()
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
             Console.WriteLine("TO DO");
         }
+
     }
 }

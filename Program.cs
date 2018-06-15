@@ -10,9 +10,7 @@ namespace BoVoyageEtape2
             var application = new Application();
             application.Demarrer();
         }
-        public static BaseDeDonnee GetBaseDonnees()
-        {
-            return new BaseDeDonnee();
-        }
+       
+
     }
 }

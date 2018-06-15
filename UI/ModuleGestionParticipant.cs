@@ -25,7 +25,8 @@ namespace BoVoyageEtape2.UI
             InformationAffichage.Creer<Participant>(x=>x.Adresse, "Adresse", 20),
             InformationAffichage.Creer<Participant>(x=>x.Telephone, "Téléphone", 16),
             InformationAffichage.Creer<Participant>(x=>x.DateNaissance, "Date naissance", 14),
-            InformationAffichage.Creer<Participant>(x=>x.Age, "Age", 3)
+            InformationAffichage.Creer<Participant>(x=>x.Age, "Age", 3),
+            InformationAffichage.Creer<Participant>(x=>x.Reduction, "Réduc", 5)
         };
         private Menu menu;
 

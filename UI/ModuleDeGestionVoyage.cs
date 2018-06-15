@@ -65,11 +65,7 @@ namespace BoVoyageEtape2.UI
         {
             ConsoleHelper.AfficherEntete("liste des voyages");
 
-            using (var dal = new BaseDeDonnee())
-            {
-                return dal.Voyages
-                    .SingleOrDefault(x => x.Id == );
-            }
+       
         }
 
         private void Nouveau()
