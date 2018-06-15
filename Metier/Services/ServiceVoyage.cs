@@ -13,7 +13,7 @@ namespace BoVoyageEtape2.Metier.Services
         {
             using (var dal = new BaseDeDonnees())
             {
-                return dal.Voyages.Include("Destination").ToList();
+                return dal.Voyages.Include("Destination").Include("Agence").ToList();
             }
         }
     }

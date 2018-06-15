@@ -19,7 +19,7 @@ namespace BoVoyageEtape2.UI
            new List<InformationAffichage>
            {
                 InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
-                //InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "référence agence", 3),
+                InformationAffichage.Creer<Voyage>(x=>x.Agence, "Nom agence", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.Destination,"Destination", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date de départ", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date de retour", 20),

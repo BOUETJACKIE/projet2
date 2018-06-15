@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    //[Table("Agences")]
-    public class AgenceVoyage
+    [Table("Agences")]
+    public class Agence
     {
         public int Id { get; set; }
 
@@ -21,7 +21,7 @@ namespace BoVoyageEtape2.Metier
 
         public override string ToString()
         {
-            return $"{this.Nom} ({this.Id})";
+            return $"{this.Nom}";
         }
     }
 }
