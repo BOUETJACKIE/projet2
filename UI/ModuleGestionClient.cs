@@ -49,7 +49,7 @@ namespace BoVoyageEtape2.UI
 
             this.menu.AjouterElement(new ElementMenu("3", "Modifier un client")
             {
-                FonctionAExecuter = this.CreerNouveau
+                FonctionAExecuter = this.Modifier
             });
 
 
@@ -191,17 +191,95 @@ namespace BoVoyageEtape2.UI
             {
                 Console.WriteLine("Opération abandonnée !");
             }
-
-
-
         }
 
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Modifier un Client");
 
-            Console.WriteLine("TO DO");
+            var liste = serviceClient.GetClients();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageClient);
+
+
+            int idClient = ConsoleSaisie.SaisirEntierObligatoire("Saisir le numéro de client");
+
+
+            Client client = serviceClient.GetClient(idClient);
+            if (client == null)
+            {
+                Console.WriteLine("Client invalide !");
+                return;
+            }
+
+
+            string confirme = ConsoleSaisie.SaisirChaineObligatoire($"Modifier Adresse ? (Entrer O) Acturelle( {client.Adresse} )").ToUpper();
+            if (confirme == "O")
+            {
+                // Validation Adresse
+                while (true)
+                {
+                    client.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse : ");
+                    try
+                    {
+                        serviceClient.VerifierClient_Adresse(client);
+                        break;
+                    }
+                    catch (MetierException e)
+                    {
+                        ConsoleHelper.AfficherMessageErreur(e.Message);
+                    }
+                }
+
+                serviceClient.ModifierClient(client);
+            }
+
+            confirme = ConsoleSaisie.SaisirChaineObligatoire($"Modifier Telephone ? (Entrer O) Acturelle( {client.Telephone} )").ToUpper();
+            if (confirme == "O")
+            {
+                // Validation Adresse
+                while (true)
+                {
+                    client.Telephone = ConsoleSaisie.SaisirChaineObligatoire("Téléphone : ");
+                    try
+                    {
+                        serviceClient.VerifierClient_Telephone(client);
+                        break;
+                    }
+                    catch (MetierException e)
+                    {
+                        ConsoleHelper.AfficherMessageErreur(e.Message);
+                    }
+                }
+
+                serviceClient.ModifierClient(client);
+            }
+
+            confirme = ConsoleSaisie.SaisirChaineObligatoire($"Modifier Email ? (Entrer O) Acturelle( {client.Email} )").ToUpper();
+            if (confirme == "O")
+            {
+                // Validation Adresse
+                while (true)
+                {
+                    client.Email = ConsoleSaisie.SaisirChaineObligatoire("Email : ");
+                    try
+                    {
+                        serviceClient.VerifierClient_Email(client);
+                        break;
+                    }
+                    catch (MetierException e)
+                    {
+                        ConsoleHelper.AfficherMessageErreur(e.Message);
+                    }
+                }
+
+                serviceClient.ModifierClient(client);
+            }
+
+
         }
+
+
+
 
     }
 }

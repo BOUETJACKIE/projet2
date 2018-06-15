@@ -44,12 +44,12 @@ namespace BoVoyageEtape2.UI
             });
             this.menu.AjouterElement(new ElementMenu("2", "Créer un voyage")
             {
-                FonctionAExecuter = this.Afficher
+                FonctionAExecuter = this.AjouterVoyage
             });
 
             this.menu.AjouterElement(new ElementMenu("3", "supprimer un voyage")
             {
-                FonctionAExecuter = this.Nouveau
+                //FonctionAExecuter = this.Nouveau
             });
 
 

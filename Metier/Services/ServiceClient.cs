@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BoVoyageEtape2.DAL;
 
+
 namespace BoVoyageEtape2.Metier.Services
 {
     class ServiceClient
@@ -16,6 +17,15 @@ namespace BoVoyageEtape2.Metier.Services
                 return dal.Clients.ToList();
             }
         }
+
+        public Client GetClient(int idClient)
+        {
+            using (var dal = new BaseDeDonnees())
+            {
+                return dal.Clients.SingleOrDefault(x => x.Id == idClient);
+            }
+        }
+
 
         public void VerifierClient_Nom(Client client)
         {
@@ -67,14 +77,13 @@ namespace BoVoyageEtape2.Metier.Services
 
         public void VerifierClient_Email(Client client)
         {
-            client.Email = client.Telephone.Trim();
+            client.Email = client.Email.Trim();
 
             if (String.IsNullOrEmpty(client.Email))
             {
                 throw new MetierException("Le Email ne doit pas être vide");
             }
         }
-
 
         public void AjouterClient(Client client)
         {
@@ -86,5 +95,15 @@ namespace BoVoyageEtape2.Metier.Services
             }
         }
 
+        public void ModifierClient(Client client)
+        {
+            // Ecriture en base
+            using (var dal = new BaseDeDonnees())
+            {
+                dal.Clients.Attach(client);
+                dal.Entry(client).State = System.Data.Entity.EntityState.Modified;
+                dal.SaveChanges();
+            }
+        }
     }
 }
