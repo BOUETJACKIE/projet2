@@ -69,7 +69,7 @@ namespace BoVoyageEtape2.UI
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Liste des participants");
 
             var liste = serviceParticipant.GetParticipants();
             ConsoleHelper.AfficherListe(liste, strategieAffichageParticipant);

@@ -62,7 +62,10 @@
     <Compile Include="Metier\EntiteMetier.cs" />
     <Compile Include="Metier\Participant.cs" />
     <Compile Include="Metier\Personne.cs" />
+    <Compile Include="Metier\Services\ServiceAgence.cs" />
+    <Compile Include="Metier\Services\ServiceDestination.cs" />
     <Compile Include="Metier\Services\ServiceParticipant.cs" />
+    <Compile Include="Metier\Services\ServiceVoyage.cs" />
     <Compile Include="Metier\Voyage.cs" />
     <Compile Include="DAL\BaseDeDonnees.cs" />
     <Compile Include="UI\Application.cs" />
