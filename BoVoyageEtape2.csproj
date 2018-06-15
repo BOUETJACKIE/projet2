@@ -96,6 +96,7 @@
     <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
     <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\fr\EntityFramework.resources.dll" />
+    <Content Include="DAL\script5.sql" />
     <Content Include="_Lib\BoVoyage.Framework.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
