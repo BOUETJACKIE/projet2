@@ -49,7 +49,7 @@ namespace BoVoyageEtape2.UI
 
             this.menu.AjouterElement(new ElementMenu("3", "Modifier un client")
             {
-                FonctionAExecuter = this.Nouveau
+                FonctionAExecuter = this.CreerNouveau
             });
 
 
@@ -75,7 +75,53 @@ namespace BoVoyageEtape2.UI
 
         private void CreerNouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau Client");
+            try
+            {
+                ConsoleHelper.AfficherEntete("Nouveau Client");
+
+                var client = new Client();
+                client.Adresse = "eee";
+                client.Civilite = "M";
+                client.DateNaissance = DateTime.Today;
+                client.Email = "rrr@ppp.com";
+                client.Telephone = "0612345678";
+                client.Prenom = "Dédé";               
+
+                client.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom : ");
+                try
+                {
+                    serviceClient.VerifierClient_Nom(client);
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
+
+
+
+
+                /*
+                produit.Description = ConsoleSaisie.SaisirChaine("Description: ", true);
+                produit.IdCategorie = ConsoleSaisie.SaisirEntierObligatoire("Catégorie: ");
+
+                produit.Categorie = this.serviceCategorieProduit.GetCategorie(produit.IdCategorie);
+
+                produit.PrixJourHT = ConsoleSaisie.SaisirDecimalObligatoire("Prix du produit HT: ");
+                */
+
+                serviceClient.AjouterClient(client);
+
+            }
+            catch (MetierException e)
+            {
+                ConsoleHelper.AfficherMessageErreur(e.Message);
+            }
+            catch (Exception e)
+            {
+                ConsoleHelper.AfficherMessageErreur("GROS SOUCI !!");
+                throw;
+            }
+
 
             /*
             try

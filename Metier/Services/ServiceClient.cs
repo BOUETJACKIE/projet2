@@ -17,8 +17,32 @@ namespace BoVoyageEtape2.Metier.Services
             }
         }
 
+        public void VerifierClient_Nom(Client client)
+        {
+            // client.Nom
+
+
+            if (String.IsNullOrEmpty(client.Nom))
+            {
+                throw new MetierException("Le Nom ne doit pas être vide");
+            }
+
+
+        }
+
+
         public void AjouterClient(Client client)
         {
+
+
+            // Ecriture en base
+            using (var dal = new BaseDeDonnees())
+            {
+                dal.Clients.Add(client);
+                dal.SaveChanges();
+            }
+
+
             /*
             // Validation
             if (produit.PrixJourHT <= 0)
