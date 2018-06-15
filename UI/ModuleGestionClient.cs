@@ -75,43 +75,83 @@ namespace BoVoyageEtape2.UI
 
         private void CreerNouveau()
         {
-            try
-            {
-                ConsoleHelper.AfficherEntete("Nouveau Client");
+            ConsoleHelper.AfficherEntete("Nouveau Client");
 
-                var client = new Client();
-                client.Adresse = "eee";
-                client.Civilite = "M";
+            var client = new Client();
                 client.DateNaissance = DateTime.Today;
                 client.Email = "rrr@ppp.com";
                 client.Telephone = "0612345678";
-                client.Prenom = "Dédé";               
+                client.Prenom = "Dédé";
 
-                client.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom : ");
+            // bool proprieteNonValidee = true;
+
+            int civilite = 0;
+            while (civilite == 0)
+            {
+                civilite = ConsoleSaisie.SaisirEntierObligatoire("Civilité (1:Madame 2:Monsieur) : ");
+                if (civilite == 1) { client.Civilite = "Mme"; break; }
+                if (civilite == 2) { client.Civilite = "M"; break; }
+                civilite = 0;
+                ConsoleHelper.AfficherMessageErreur("Réponse invalide ! ");
+            }
+               
+            // !!! ConsoleSaisie.SaisirChaineObligatoire peut renvoyer des blancs !!!
+            while (true)
+            { 
+                client.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom : ");                   
                 try
                 {
                     serviceClient.VerifierClient_Nom(client);
+                    break;
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);                      
+                }
+             }
+
+            // Validation Adresse
+            while (true)
+            {
+                client.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse : ");
+                try
+                {
+                    serviceClient.VerifierClient_Adresse(client);
+                    break;
                 }
                 catch (MetierException e)
                 {
                     ConsoleHelper.AfficherMessageErreur(e.Message);
                 }
-
-
-
-
-                /*
-                produit.Description = ConsoleSaisie.SaisirChaine("Description: ", true);
-                produit.IdCategorie = ConsoleSaisie.SaisirEntierObligatoire("Catégorie: ");
-
-                produit.Categorie = this.serviceCategorieProduit.GetCategorie(produit.IdCategorie);
-
-                produit.PrixJourHT = ConsoleSaisie.SaisirDecimalObligatoire("Prix du produit HT: ");
-                */
-
-                serviceClient.AjouterClient(client);
-
             }
+
+            // Validation Date de naissance
+            while (true)
+            {
+                client.DateNaissance = ConsoleSaisie.SaisirDateObligatoire("Date de naissance : ");
+                try
+                {
+                    serviceClient.VerifierClient_DateNaissance(client);
+                    break;
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
+            }
+
+
+
+
+
+            serviceClient.AjouterClient(client);
+
+
+
+            /*
+             * 
+             * 
+             *   }
             catch (MetierException e)
             {
                 ConsoleHelper.AfficherMessageErreur(e.Message);
@@ -122,8 +162,6 @@ namespace BoVoyageEtape2.UI
                 throw;
             }
 
-
-            /*
             try
             {
                 ConsoleHelper.AfficherEntete("Nouveau produit");

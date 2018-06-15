@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Metier\AgenceVoyage.cs" />
+    <Compile Include="Metier\Agence.cs" />
     <Compile Include="Metier\Assurance.cs" />
     <Compile Include="Metier\AssuranceAnnulation.cs" />
     <Compile Include="Metier\Client.cs" />
@@ -63,8 +63,11 @@
     <Compile Include="Metier\Participant.cs" />
     <Compile Include="Metier\Personne.cs" />
     <Compile Include="Metier\MetierException.cs" />
+    <Compile Include="Metier\Services\serviceAgence.cs" />
     <Compile Include="Metier\Services\ServiceClient.cs" />
+    <Compile Include="Metier\Services\ServiceDestination.cs" />
     <Compile Include="Metier\Services\ServiceParticipant.cs" />
+    <Compile Include="Metier\Services\ServiceVoyage.cs" />
     <Compile Include="Metier\Voyage.cs" />
     <Compile Include="DAL\BaseDeDonnees.cs" />
     <Compile Include="UI\Application.cs" />
@@ -78,10 +81,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\BoVoyageEtape2.exe.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Release\" />
     <Folder Include="_Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BoVoyage.Framework.dll" />
+    <Content Include="bin\Debug\BoVoyageEtape2.exe" />
+    <Content Include="bin\Debug\BoVoyageEtape2.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\fr\EntityFramework.resources.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
