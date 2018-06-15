@@ -20,9 +20,9 @@ namespace BoVoyageEtape2.Metier
         public virtual Voyage Voyage { get; set; }
         public int IdVoyage { get; set; }
 
-        //[ForeignKey("IdAgenceDeVoyage")]
-        public virtual AgenceVoyage AgenceVoyage { get; set; }
-        public int IdAgenceVoyage { get; set; }
+        //[ForeignKey("IdAgence")]
+        public virtual Agence Agence { get; set; }
+        public int IdAgence { get; set; }
      
         //[ForeignKey("IdClient")]
         public virtual Client Client { get; set; }

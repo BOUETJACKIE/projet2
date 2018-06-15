@@ -9,26 +9,24 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    //[Table("Voyages")]
+    [Table("Voyages")]
     public class Voyage
     {
         public int Id { get; set; }
 
-        //[ForeignKey("IdAgenceDeVoyage")]
-        public virtual AgenceVoyage AgenceVoyage { get; set; }
-        public int IdAgenceVoyage { get; set; }
+        [ForeignKey("IdAgence")]
+        public virtual Agence Agence { get; set; }
+        public int IdAgence { get; set; }
 
-        //[ForeignKey("IdDestination")]
+        [ForeignKey("IdDestination")]
         public virtual Destination Destination { get; set; }
         public int IdDestination { get; set; }
-
-        public string Nom { get; set; }
 
         public DateTime DateAller { get; set; }
 
         public DateTime DateRetour { get; set; }
 
-        public int PlaceDisponibles { get; set; }
+        public int PlacesDispo { get; set; }
 
         public Decimal TarifToutCompris { get; set; }
 
@@ -38,10 +36,7 @@ namespace BoVoyageEtape2.Metier
             
         }
 
-        public override string ToString()
-        {
-            return $"{this.Nom} ({this.Id})";
-        }
+      
     }
 }
 

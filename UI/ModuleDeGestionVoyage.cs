@@ -6,20 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BoVoyageEtape2.DAL;
+using BoVoyageEtape2.Metier.Services;
 
 namespace BoVoyageEtape2.UI
 {
     class ModuleGestionVoyage
+
     {
+        private readonly ServiceVoyage serviceVoyage = new ServiceVoyage();
+
         private static readonly List<InformationAffichage> strategieAffichageVoyage =
            new List<InformationAffichage>
            {
                 InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "référence agence", 3),
-                InformationAffichage.Creer<Voyage>(x=>x.IdDestination, "eéférence Destination", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.Agence, "Nom agence", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.Destination,"Destination", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date de départ", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date de retour", 20),
-                InformationAffichage.Creer<Voyage>(x=>x.PlaceDisponibles, "Places disponibles", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.PlacesDispo, "Places disponibles", 20),
                 InformationAffichage.Creer<Voyage>(x=>x.TarifToutCompris, "Prix total", 20),
 
            };
@@ -64,8 +68,11 @@ namespace BoVoyageEtape2.UI
         private void Afficher()
         {
             ConsoleHelper.AfficherEntete("liste des voyages");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            var liste = serviceVoyage.GetVoyages();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageVoyage);
 
-       
+
         }
 
         private void Nouveau()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    //[Table("Destinations")]
+    [Table("Destinations")]
     public class Destination
     {
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace BoVoyageEtape2.Metier
 
         public override string ToString()
         {
-            return $"{this.Description} ({this.Id})";
+            return $"{this.Pays}";
         }
     }
 }
