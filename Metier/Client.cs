@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    [Table("Clients")]
+    //[Table("Clients")]
     public class Client : Personne
     {
         public string Email { get; set; }

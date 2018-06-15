@@ -11,20 +11,20 @@ namespace BoVoyageEtape2.Metier
 
     public enum RaisonAnnulationDossier : byte { Client = 1, PlacesInsuffisantes }
 
-    [Table("DossierReservations")]
+    //[Table("DossierReservations")]
     public class DossierReservation
     {
         public int Id { get; set; }
 
-        [ForeignKey("Voyage")]
+        //[ForeignKey("Voyage")]
         public virtual Voyage Voyage { get; set; }
         public int IdVoyage { get; set; }
 
-        [ForeignKey("IdAgenceDeVoyage")]
+        //[ForeignKey("IdAgenceDeVoyage")]
         public virtual AgenceVoyage AgenceVoyage { get; set; }
         public int IdAgenceVoyage { get; set; }
      
-        [ForeignKey("IdClient")]
+        //[ForeignKey("IdClient")]
         public virtual Client Client { get; set; }
         public int IdClient { get; set; }
 

@@ -1,11 +1,11 @@
-﻿namespace BoVoyageEtape2
+﻿namespace BoVoyageEtape2.DAL
 {
     using BoVoyageEtape2.Metier;
     using System;
     using System.Data.Entity;
     using System.Linq;
 
-    public class BaseDeDonnee : DbContext
+    public class BaseDeDonnees : DbContext
     {
         // Votre contexte a été configuré pour utiliser une chaîne de connexion « Model1 » du fichier 
         // de configuration de votre application (App.config ou Web.config). Par défaut, cette chaîne de connexion cible 
@@ -13,17 +13,19 @@
         // 
         // Pour cibler une autre base de données et/ou un autre fournisseur de base de données, modifiez 
         // la chaîne de connexion « Model1 » dans le fichier de configuration de l'application.
-        public BaseDeDonnee()
-            : base("name=Connexion")
+        public BaseDeDonnees() : base("name=Connexion")
         {
         }
-        public DbSet<AgenceVoyage> Agences { get; set; }
+
+        public DbSet<Participant> Participants { get; set; }
+       /* public DbSet<AgenceVoyage> Agences { get; set; }
         public DbSet<Assurance> Assurances { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<DossierReservation> DossierReservations { get; set; }
-        public DbSet<Participant> Participants { get; set; }
+        
         public DbSet<Voyage> Voyages { get; set; }
+        */
 
         // Ajoutez un DbSet pour chaque type d'entité à inclure dans votre modèle. Pour plus d'informations 
         // sur la configuration et l'utilisation du modèle Code First, consultez http://go.microsoft.com/fwlink/?LinkId=390109.

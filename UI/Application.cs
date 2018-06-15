@@ -30,7 +30,7 @@ namespace BoVoyageEtape2.UI
             this.menuPrincipal.AjouterElement(new ElementMenu("2", "Gestion des Participants")
             {
                 AfficherLigneRetourMenuApresExecution = false,
-                FonctionAExecuter = this.moduleGestionClient.Demarrer
+                FonctionAExecuter = this.moduleGestionParticipant.Demarrer
             });
             this.menuPrincipal.AjouterElement(new ElementMenu("3", "Gestion des voyages")
             {

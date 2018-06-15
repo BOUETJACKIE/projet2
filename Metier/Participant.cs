@@ -8,8 +8,24 @@ using System.Threading.Tasks;
 namespace BoVoyageEtape2.Metier
 {
     [Table("Participants")]
-    public class Participant : Personne
+    public class Participant
     {
+        public int Id { get; set; }
+
+        public string Civilite { get; set; }
+
+        public string Nom { get; set; }
+
+        public string Prenom { get; set; }
+
+        public string Adresse { get; set; }
+
+        public string Telephone { get; set; }
+
+        public DateTime DateNaissance { get; set; }
+
+        public int Age { get { return DateTime.Today.Year - DateNaissance.Year; } }
+
         float Reduction { get; set; }
     }
 }

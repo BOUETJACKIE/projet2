@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace BoVoyageEtape2.Metier
 {
-    [Table("Voyages")]
+    //[Table("Voyages")]
     public class Voyage
     {
         public int Id { get; set; }
 
-        [ForeignKey("IdAgenceDeVoyage")]
+        //[ForeignKey("IdAgenceDeVoyage")]
         public virtual AgenceVoyage AgenceVoyage { get; set; }
         public int IdAgenceVoyage { get; set; }
 
-        [ForeignKey("IdDestination")]
+        //[ForeignKey("IdDestination")]
         public virtual Destination Destination { get; set; }
         public int IdDestination { get; set; }
 

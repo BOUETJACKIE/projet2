@@ -5,16 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using BoVoyage.Framework.UI;
 using BoVoyageEtape2.Metier;
+using BoVoyageEtape2.Metier.Services;
+
 
 namespace BoVoyageEtape2.UI
 {
     class ModuleGestionParticipant
     {
+        private readonly ServiceParticipant serviceParticipant = new ServiceParticipant();
+
+
         private static readonly List<InformationAffichage> strategieAffichageParticipant =
         new List<InformationAffichage>
         {
             InformationAffichage.Creer<Participant>(x=>x.Id, "Id", 3),
-            InformationAffichage.Creer<Participant>(x=>x.Nom, "Nom", 20),
+            InformationAffichage.Creer<Participant>(x=>x.Civilite, "Civ.", 4),
+            InformationAffichage.Creer<Participant>(x=>x.Nom, "Nom", 16),
+            InformationAffichage.Creer<Participant>(x=>x.Prenom, "Prénom", 16),
+            InformationAffichage.Creer<Participant>(x=>x.Adresse, "Adresse", 20),
+            InformationAffichage.Creer<Participant>(x=>x.Telephone, "Téléphone", 16),
+            InformationAffichage.Creer<Participant>(x=>x.DateNaissance, "Date naissance", 14),
+            InformationAffichage.Creer<Participant>(x=>x.Age, "Age", 3)
         };
         private Menu menu;
 
@@ -60,7 +71,8 @@ namespace BoVoyageEtape2.UI
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
-            Console.WriteLine("TO DO");
+            var liste = serviceParticipant.GetParticipants();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageParticipant);
         }
 
         private void Nouveau()
