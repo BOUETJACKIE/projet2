@@ -5,16 +5,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoVoyageEtape2.DAL;
 
 namespace BoVoyageEtape2.UI
 {
     class ModuleGestionVoyage
     {
-        private static readonly List<InformationAffichage> strategieAffichageEntitesMetier =
+        private static readonly List<InformationAffichage> strategieAffichageVoyage =
            new List<InformationAffichage>
            {
-                InformationAffichage.Creer<EntiteMetier>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<EntiteMetier>(x=>x.Nom, "Nom", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "référence agence", 3),
+                InformationAffichage.Creer<Voyage>(x=>x.IdDestination, "eéférence Destination", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date de départ", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date de retour", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.PlaceDisponibles, "Places disponibles", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.TarifToutCompris, "Prix total", 20),
+
            };
         private Menu menu;
 
@@ -56,9 +63,13 @@ namespace BoVoyageEtape2.UI
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("liste des voyages");
 
-            Console.WriteLine("TO DO");
+            using (var dal = new BaseDeDonnee())
+            {
+                return dal.Voyages
+                    .SingleOrDefault(x => x.Id == );
+            }
         }
 
         private void Nouveau()
