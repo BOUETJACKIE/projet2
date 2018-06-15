@@ -78,13 +78,8 @@ namespace BoVoyageEtape2.UI
             ConsoleHelper.AfficherEntete("Nouveau Client");
 
             var client = new Client();
-                client.DateNaissance = DateTime.Today;
-                client.Email = "rrr@ppp.com";
-                client.Telephone = "0612345678";
-                client.Prenom = "Dédé";
-
-            // bool proprieteNonValidee = true;
-
+ 
+            // On s'aide un peu de l'interface pour celui la...
             int civilite = 0;
             while (civilite == 0)
             {
@@ -94,11 +89,12 @@ namespace BoVoyageEtape2.UI
                 civilite = 0;
                 ConsoleHelper.AfficherMessageErreur("Réponse invalide ! ");
             }
-               
+
             // !!! ConsoleSaisie.SaisirChaineObligatoire peut renvoyer des blancs !!!
+            // Validation Nom
             while (true)
-            { 
-                client.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom : ");                   
+            {
+                client.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom : ");
                 try
                 {
                     serviceClient.VerifierClient_Nom(client);
@@ -106,17 +102,17 @@ namespace BoVoyageEtape2.UI
                 }
                 catch (MetierException e)
                 {
-                    ConsoleHelper.AfficherMessageErreur(e.Message);                      
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
                 }
-             }
+            }
 
-            // Validation Adresse
+            // Validation Prénom
             while (true)
             {
-                client.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse : ");
+                client.Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom : ");
                 try
                 {
-                    serviceClient.VerifierClient_Adresse(client);
+                    serviceClient.VerifierClient_Prenom(client);
                     break;
                 }
                 catch (MetierException e)
@@ -140,52 +136,63 @@ namespace BoVoyageEtape2.UI
                 }
             }
 
-
-
-
-
-            serviceClient.AjouterClient(client);
-
-
-
-            /*
-             * 
-             * 
-             *   }
-            catch (MetierException e)
+            // Validation Adresse
+            while (true)
             {
-                ConsoleHelper.AfficherMessageErreur(e.Message);
-            }
-            catch (Exception e)
-            {
-                ConsoleHelper.AfficherMessageErreur("GROS SOUCI !!");
-                throw;
+                client.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse : ");
+                try
+                {
+                    serviceClient.VerifierClient_Adresse(client);
+                    break;
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
             }
 
-            try
+            // Validation Telephone
+            while (true)
             {
-                ConsoleHelper.AfficherEntete("Nouveau produit");
-
-                var produit = new Produit();
-                produit.Nom = ConsoleSaisie.SaisirChaine("Nom du produit: ", false);
-                produit.Description = ConsoleSaisie.SaisirChaine("Description: ", true);
-                produit.IdCategorie = ConsoleSaisie.SaisirEntierObligatoire("Catégorie: ");
-
-                produit.Categorie = this.serviceCategorieProduit.GetCategorie(produit.IdCategorie);
-
-                produit.PrixJourHT = ConsoleSaisie.SaisirDecimalObligatoire("Prix du produit HT: ");
-                serviceProduit.AjouterProduit(produit);
+                client.Telephone = ConsoleSaisie.SaisirChaineObligatoire("Telephone : ");
+                try
+                {
+                    serviceClient.VerifierClient_Telephone(client);
+                    break;
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
             }
-            catch (MetierException e)
+
+            // Validation Email
+            while (true)
             {
-                ConsoleHelper.AfficherMessageErreur(e.Message);
+                client.Email = ConsoleSaisie.SaisirChaineObligatoire("Email : ");
+                try
+                {
+                    serviceClient.VerifierClient_Email(client);
+                    break;
+                }
+                catch (MetierException e)
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
             }
-            catch (Exception e)
+
+            string confirme = ConsoleSaisie.SaisirChaineObligatoire("CONFIRMER CREATION CLIENT (Entrer 'O') ?").ToUpper();
+            if (confirme == "O")
             {
-                ConsoleHelper.AfficherMessageErreur("GROS PROBLEME");
-                throw;
+                serviceClient.AjouterClient(client);
+                Console.WriteLine("Client Crée !");
             }
-            */
+            else
+            {
+                Console.WriteLine("Opération abandonnée !");
+            }
+
+
 
         }
 
