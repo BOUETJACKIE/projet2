@@ -81,9 +81,33 @@ namespace BoVoyageEtape2.UI
                 ConsoleHelper.AfficherEntete("Nouveau Voyage");
 
                 var voyage = new Voyage();
+            while(true)
+                {
                 voyage.DateAller = ConsoleSaisie.SaisirDateObligatoire("Date de départ: ");
                 voyage.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date de retour: ");
+                try 
+                    {
+                       serviceVoyage.VerifierVoyage_DateAller(voyage);
+                       serviceVoyage.VerifierVoyage_DateRetour(voyage);
+                       break;
+                    }
+                catch(MetierException e)
+                
+                { 
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+}
+
                 voyage.PlacesDispo = ConsoleSaisie.SaisirEntierObligatoire("Nombre de places disponibles: ");
+                try
+                    {serviceVoyage.VerifierVoyage_PlaceDispo(voyage);
+                    break;
+                    }
+                catch(MetierException e)
+                
+                { 
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+
+}
                 voyage.TarifToutCompris = ConsoleSaisie.SaisirDecimalObligatoire(" tarif du voyage tout inclus:");
 
                 //voyage.Destination = this.ServiceDestination.GetDestination(voyage.Destination);
@@ -93,22 +117,9 @@ namespace BoVoyageEtape2.UI
            
 
 
-                if (voyage.DateRetour < voyage.DateAller)
-                {
-                    throw new MetierException("ATTENTION!! La date de retour ne doit pas être antérieure à la date de départ ");
-                }
+                
 
-                if (voyage.PlacesDispo == 0)
-                {
-                    throw new MetierException("Voyage complet!!");
-                }
-
-                // Ecriture en base
-                using (var dal = new BaseDeDonnees())
-                {
-                    dal.Voyages.Add(voyage);
-                    dal.SaveChanges();
-                }
+                
             }
 
         }
