@@ -26,7 +26,7 @@ namespace BoVoyageEtape2.Metier
 
         public DateTime DateRetour { get; set; }
 
-        public int PlacesDispo { get; set; }
+        public int PlacesDispo{ get; set; }
 
         public Decimal TarifToutCompris { get; set; }
 

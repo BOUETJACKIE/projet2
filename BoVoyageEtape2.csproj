@@ -70,9 +70,6 @@
     <Compile Include="Metier\Services\ServiceVoyage.cs" />
     <Compile Include="Metier\Voyage.cs" />
     <Compile Include="DAL\BaseDeDonnees.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="UI\Application.cs" />
     <Compile Include="UI\ModuleDeGestionVoyage.cs" />
     <Compile Include="UI\ModuleGestion1.cs" />
@@ -83,26 +80,13 @@
     <Compile Include="UI\ModuleGestionParticipant.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
     <None Include="App.config" />
     <None Include="bin\Debug\BoVoyageEtape2.exe.config" />
-    <None Include="obj\Debug\BoVoyageEtape2.csproj.CopyComplete" />
-    <None Include="obj\Debug\BoVoyageEtape2.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\BoVoyageEtape2.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
-    <None Include="packages\EntityFramework.6.2.0\content\net40\App.config.transform" />
-    <None Include="packages\EntityFramework.6.2.0\content\net40\Web.config.transform" />
-    <None Include="packages\EntityFramework.6.2.0\EntityFramework.6.2.0.nupkg" />
-    <None Include="packages\EntityFramework.6.2.0\tools\EntityFramework.psd1" />
-    <None Include="packages\EntityFramework.6.2.0\tools\EntityFramework.psm1" />
-    <None Include="packages\EntityFramework.6.2.0\tools\init.ps1" />
-    <None Include="packages\EntityFramework.6.2.0\tools\install.ps1" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="_Lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\BoVoyage.Framework.dll" />
@@ -112,22 +96,7 @@
     <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
     <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="obj\Debug\BoVoyageEtape2.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\BoVoyageEtape2.exe" />
-    <Content Include="obj\Debug\BoVoyageEtape2.pdb" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.xml" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net40\EntityFramework.xml" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.xml" />
-    <Content Include="packages\EntityFramework.6.2.0\lib\net45\EntityFramework.xml" />
-    <Content Include="packages\EntityFramework.6.2.0\tools\about_EntityFramework.help.txt" />
-    <Content Include="packages\EntityFramework.6.2.0\tools\EntityFramework.PowerShell.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\tools\EntityFramework.PowerShell.Utility.dll" />
-    <Content Include="packages\EntityFramework.6.2.0\tools\migrate.exe" />
-    <Content Include="_Lib\BoVoyage.Framework.dll" />
+    <Content Include="bin\Debug\fr\EntityFramework.resources.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

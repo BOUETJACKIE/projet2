@@ -68,8 +68,7 @@ namespace BoVoyageEtape2.UI
         private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau");
-
-            Console.WriteLine("TO DO");
+           
         }
 
     }

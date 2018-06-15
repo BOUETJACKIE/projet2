@@ -19,16 +19,42 @@ namespace BoVoyageEtape2.Metier.Services
 
         public void VerifierClient_Nom(Client client)
         {
-            // client.Nom
-
+            client.Nom = client.Nom.Trim();
 
             if (String.IsNullOrEmpty(client.Nom))
             {
-                throw new MetierException("Le Nom ne doit pas être vide");
+                throw new MetierException("Le nom ne doit pas être vide");
             }
-
-
         }
+
+        public void VerifierClient_Adresse(Client client)
+        {
+            client.Nom = client.Adresse.Trim();
+
+            if (String.IsNullOrEmpty(client.Adresse))
+            {
+                throw new MetierException("L'adresse ne doit pas être vide");
+            }
+        }
+
+        public void VerifierClient_Telephone(Client client)
+        {
+            client.Nom = client.Telephone.Trim();
+
+            if (String.IsNullOrEmpty(client.Telephone))
+            {
+                throw new MetierException("Le téléphone ne doit pas être vide");
+            }
+        }
+
+        public void VerifierClient_DateNaissance(Client client)
+        {           
+            if (client.DateNaissance > DateTime.Today)
+            {
+                throw new MetierException("Souci de Date de naissance postérieure à aujourd'hui ! ");
+            }
+        }
+
 
 
         public void AjouterClient(Client client)
