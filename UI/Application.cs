@@ -53,6 +53,41 @@ namespace BoVoyageEtape2.UI
             this.InitialiserModules();
             this.InitialiserMenuPrincipal();
 
+            Console.WriteLine("VERSION NOTICE:");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Module gestion des clients:");
+            Console.WriteLine("Fonctionnalité: 'Afficher': bien ");
+            Console.WriteLine("Fonctionnalité: 'Créer Client': bien ");
+            Console.WriteLine("Fonctionnalité: 'Modifier Client': bien ");
+            Console.WriteLine("Classe de service: stratégie de validation propriété par propriété");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Module gestion des voyages:");
+            Console.WriteLine("Fonctionnalité: 'Afficher': bien ");
+            Console.WriteLine("Fonctionnalité: 'Créer voyage': à approfondir (implémentation par le pays, gestion des idManquants ");
+            Console.WriteLine("Fonctionnalité: 'supprimer voyage : à faire ");
+            Console.WriteLine("Classe de service: stratégie de validation propriété par propriété");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            Console.WriteLine("Module gestion des participants ");
+            Console.WriteLine("Fonctionnalité: 'Afficher': bien ");
+            Console.WriteLine("Fonctionnalité: créer/modifier: A faire");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Module: gestion des dossiers: A faire ");
+
+
+
+
+
+            Console.ReadLine();
+
+
             this.menuPrincipal.Afficher();
         }
     }

@@ -83,6 +83,5 @@ namespace BoVoyageEtape2.UI
             Console.WriteLine("TO DO");
         }
 
-
     }
 }
