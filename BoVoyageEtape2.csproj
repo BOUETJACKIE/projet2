@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="_Lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\BoVoyage.Framework.dll" />
@@ -97,6 +96,7 @@
     <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
     <Content Include="bin\Debug\EntityFramework.xml" />
     <Content Include="bin\Debug\fr\EntityFramework.resources.dll" />
+    <Content Include="_Lib\BoVoyage.Framework.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

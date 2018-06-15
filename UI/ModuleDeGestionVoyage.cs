@@ -14,6 +14,11 @@ namespace BoVoyageEtape2.UI
 
     {
         private readonly ServiceVoyage serviceVoyage = new ServiceVoyage();
+       
+
+
+
+
 
         private static readonly List<InformationAffichage> strategieAffichageVoyage =
            new List<InformationAffichage>
@@ -44,12 +49,12 @@ namespace BoVoyageEtape2.UI
             });
             this.menu.AjouterElement(new ElementMenu("2", "Créer un voyage")
             {
-                FonctionAExecuter = this.Afficher
+                FonctionAExecuter = this.AjouterVoyage
             });
 
             this.menu.AjouterElement(new ElementMenu("3", "supprimer un voyage")
             {
-                FonctionAExecuter = this.Nouveau
+                FonctionAExecuter = this.Afficher
             });
 
 
@@ -81,33 +86,71 @@ namespace BoVoyageEtape2.UI
                 ConsoleHelper.AfficherEntete("Nouveau Voyage");
 
                 var voyage = new Voyage();
-            while(true)
-                {
+
+           
+
+
+            voyage.IdAgence = ConsoleSaisie.SaisirEntierObligatoire("entrer reférence de l'agence:");
+
+            
+
+            voyage.IdDestination = ConsoleSaisie.SaisirEntierObligatoire("entrer reférence de la destination:");
+
+            while (true)
+            {
                 voyage.DateAller = ConsoleSaisie.SaisirDateObligatoire("Date de départ: ");
-                voyage.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date de retour: ");
-                try 
-                    {
-                       serviceVoyage.VerifierVoyage_DateAller(voyage);
-                       serviceVoyage.VerifierVoyage_DateRetour(voyage);
-                       break;
-                    }
-                catch(MetierException e)
-                
-                { 
+               
+                try
+                {
+                    serviceVoyage.VerifierVoyage_DateAller(voyage);
+                    
+                    break;
+                }
+                catch (MetierException e)
+
+                {
                     ConsoleHelper.AfficherMessageErreur(e.Message);
-}
+                }
+            }
+            while (true)
+            {
+                voyage.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date de retour: ");
+               
+                try
+                {
+                    serviceVoyage.VerifierVoyage_DateRetour(voyage);
+                   
+                    break;
+                }
+                catch (MetierException e)
+
+                {
+                    ConsoleHelper.AfficherMessageErreur(e.Message);
+                }
+            }
+
+
+
+            while (true)
+            {
+
 
                 voyage.PlacesDispo = ConsoleSaisie.SaisirEntierObligatoire("Nombre de places disponibles: ");
                 try
-                    {serviceVoyage.VerifierVoyage_PlaceDispo(voyage);
+                {
+                    serviceVoyage.VerifierVoyage_PlaceDispo(voyage);
                     break;
-                    }
-                catch(MetierException e)
-                
-                { 
+                }
+                catch (MetierException e)
+
+                {
                     ConsoleHelper.AfficherMessageErreur(e.Message);
 
-}
+                }
+
+
+            }
+
                 voyage.TarifToutCompris = ConsoleSaisie.SaisirDecimalObligatoire(" tarif du voyage tout inclus:");
 
                 //voyage.Destination = this.ServiceDestination.GetDestination(voyage.Destination);
@@ -120,7 +163,7 @@ namespace BoVoyageEtape2.UI
                 
 
                 
-            }
+            
 
         }
     }

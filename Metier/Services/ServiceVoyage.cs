@@ -19,23 +19,18 @@ namespace BoVoyageEtape2.Metier.Services
         public void VerifierVoyage_DateAller(Voyage voyage)
             {
             
-             if (voyage.DateRetour < voyage.DateAller)
-                {
-                    throw new MetierException("ATTENTION!! La date de retour ne doit pas être antérieure à la date de départ ");
+             if //(voyage.DateRetour < voyage.DateAller)
+            (voyage.DateAller < DateTime.Today)
+            {
+                    throw new MetierException("Date invalide!");
                 }
              }
-         public void VerifierVoyage_DateAller1 (Voyage voyage)
-        {           
-            if (voyage.DateAller > DateTime.Today)
-            {
-                throw new MetierException("Date invalide! ");
-            }
-        }    
+        
          public void VerifierVoyage_DateRetour (Voyage voyage)
         {           
-            if (voyage.DateRetour > DateTime.Today)
+            if (voyage.DateRetour < voyage.DateAller)
             {
-                throw new MetierException("Date invalide! ");
+                throw new MetierException("ATTENTION!! La date de retour ne doit pas être antérieure à la date de départ ");
             }
         }    
          public void VerifierVoyage_PlaceDispo (Voyage voyage)
