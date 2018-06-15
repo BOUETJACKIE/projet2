@@ -27,9 +27,19 @@ namespace BoVoyageEtape2.Metier.Services
             }
         }
 
+        public void VerifierClient_Prenom(Client client)
+        {
+            client.Prenom = client.Prenom.Trim();
+
+            if (String.IsNullOrEmpty(client.Prenom))
+            {
+                throw new MetierException("Le prénom ne doit pas être vide");
+            }
+        }
+
         public void VerifierClient_Adresse(Client client)
         {
-            client.Nom = client.Adresse.Trim();
+            client.Adresse = client.Adresse.Trim();
 
             if (String.IsNullOrEmpty(client.Adresse))
             {
@@ -39,7 +49,7 @@ namespace BoVoyageEtape2.Metier.Services
 
         public void VerifierClient_Telephone(Client client)
         {
-            client.Nom = client.Telephone.Trim();
+            client.Telephone = client.Telephone.Trim();
 
             if (String.IsNullOrEmpty(client.Telephone))
             {
@@ -55,40 +65,25 @@ namespace BoVoyageEtape2.Metier.Services
             }
         }
 
+        public void VerifierClient_Email(Client client)
+        {
+            client.Email = client.Telephone.Trim();
+
+            if (String.IsNullOrEmpty(client.Email))
+            {
+                throw new MetierException("Le Email ne doit pas être vide");
+            }
+        }
 
 
         public void AjouterClient(Client client)
         {
-
-
             // Ecriture en base
             using (var dal = new BaseDeDonnees())
             {
                 dal.Clients.Add(client);
                 dal.SaveChanges();
             }
-
-
-            /*
-            // Validation
-            if (produit.PrixJourHT <= 0)
-            {
-                throw new MetierException("Le prix ne doit pas être négatif ou 0. Retour au menu.");
-            }
-
-            if (produit.Categorie == null)
-            {
-                throw new MetierException("Catégorie invalide. Retour au menu.");
-            }
-
-            // Ecriture en base
-            using (var dal = new BaseDonnees())
-            {
-                dal.Produits.Add(produit);
-                dal.SaveChanges();
-            }
-
-    */
         }
 
     }

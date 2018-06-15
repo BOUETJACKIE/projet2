@@ -49,7 +49,7 @@ namespace BoVoyageEtape2.UI
 
             this.menu.AjouterElement(new ElementMenu("3", "supprimer un voyage")
             {
-                FonctionAExecuter = this.Nouveau
+
             });
 
 
@@ -78,39 +78,6 @@ namespace BoVoyageEtape2.UI
         public void AjouterVoyage()
         {
             
-                ConsoleHelper.AfficherEntete("Nouveau Voyage");
-
-                var voyage = new Voyage();
-                voyage.DateAller = ConsoleSaisie.SaisirDateObligatoire("Date de départ: ");
-                voyage.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date de retour: ");
-                voyage.PlacesDispo = ConsoleSaisie.SaisirEntierObligatoire("Nombre de places disponibles: ");
-                voyage.TarifToutCompris = ConsoleSaisie.SaisirDecimalObligatoire(" tarif du voyage tout inclus:");
-
-                //voyage.Destination = this.ServiceDestination.GetDestination(voyage.Destination);
-
-
-                serviceVoyage.AjouterVoyage(voyage);
-           
-
-
-                if (voyage.DateRetour < voyage.DateAller)
-                {
-                    throw new MetierException("ATTENTION!! La date de retour ne doit pas être antérieure à la date de départ ");
-                }
-
-                if (voyage.PlacesDispo == 0)
-                {
-                    throw new MetierException("Voyage complet!!");
-                }
-
-                // Ecriture en base
-                using (var dal = new BaseDeDonnees())
-                {
-                    dal.Voyages.Add(voyage);
-                    dal.SaveChanges();
-                }
-            }
-
         }
     }
 }
